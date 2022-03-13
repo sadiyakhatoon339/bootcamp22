@@ -53,7 +53,7 @@ class EmployeeApplicationTests {
 	@Test
 	public void testUpdate() {
 		Employee employee = employeeRepository.findById(1).get();
-		employee.setLocation("Uttarakhand");
+		employee.setLocation("Uttar Pradesh");
 		employeeRepository.save(employee);
 	}
 
@@ -66,12 +66,12 @@ class EmployeeApplicationTests {
 	public void testRead() {
 		Employee employee = employeeRepository.findById(1).get();
 		assertNotNull(employee);
-		assertEquals("Lakshay Rawat", employee.getName());
+		assertEquals("Vareesha Hussain", employee.getName());
 	}
 
 	@Test
 	public void testCount() {
-		System.out.println("Total employees ==>> " + employeeRepository.count());
+		System.out.println("Total employees ==>>  " + employeeRepository.count());
 	}
 
 	@Test
@@ -88,19 +88,19 @@ class EmployeeApplicationTests {
 
 	@Test
 	public void testFindByName() {
-		List<Employee> employeeList = employeeRepository.findByName("iWatch");
+		List<Employee> employeeList = employeeRepository.findByName("Alvi");
 		employeeList.forEach(p -> System.out.println(p.getName()));
 	}
 
 	@Test
 	public void testFindByNameLikeA() {
-		List<Employee> employees = employeeRepository.findByNameLike("A%");
+		List<Employee> employees = employeeRepository.findByNameLike("H%");
 		employees.forEach(e -> System.out.println(e.getId()));
 	}
 
 	@Test
 	public void testFindByAgeBetween() {
-		List<Employee> employees = employeeRepository.findByAgeBetween(20, 22);
+		List<Employee> employees = employeeRepository.findByAgeBetween(30, 50);
 		employees.forEach(e -> System.out.println(e.getId()));
 	}
 }
